@@ -1,483 +1,98 @@
 import 'package:flutter/material.dart';
 
-// main function
+import 'account.dart';
+import 'contact.dart';
+import 'gallery.dart';
+import 'maps.dart';
+import 'homepage.dart';
+
 void main() {
   runApp(MyApp());
 }
 
-// main function calls the class MyApp
 class MyApp extends StatelessWidget {
-  // key is used only for feedback form
-  final _key = GlobalKey<FormState>();
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Amrapali Gramsahavas',
-        home: Scaffold(
-          // we need to create a single AppBar function and BottomNavigationBar function  to execute at every page after navigation
-          // option 1 - call the same function in every page
-          // option 2 - need to ask Vartak Sir
-          appBar: AppBar(
-            // need to add Amrapali logo, P searched, but failed
-            title: const Text('Amrapali Gramsahavas'),
-            backgroundColor: Colors.black,
-          ),
-          body: Center(
-            child: Builder(
-              builder: (context) => SingleChildScrollView(
-                child: Center(
-                  child: Column(
-                    children: [
-                      // make the image size large, occupying the whole width of screen, and atleast 40% of vertical screen
-                      Image.asset('compound_1.jpg'),
-                      //Image.network(
-                      //  'https://i1.wp.com/famt.ac.in/wp-content/uploads/2015/08/DSC_0050.jpg',
-                      //  height: 300,
-                      //),
-                      Padding(
-                          padding: EdgeInsets.all(12.0),
-                          child: Center(
-                            child: RichText(
-                              // need to update the font size and indentation
-                              text: TextSpan(
-                                  text: 'Welcome to\n',
-                                  children: <InlineSpan>[
-                                    TextSpan(
-                                        text: 'Amrapali Gramsahavas\n',
-                                        style: TextStyle(
-                                            color: Colors.blueAccent,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold)),
-                                    TextSpan(
-                                      text:
-                                          // need to confirm from the client
-                                          'A fine union of Literature, Environment and Tourism',
-                                    )
-                                  ]),
-                            ),
-                          )),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      Column(
-                        //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          ButtonTheme(
-                            minWidth: 400.0,
-                            height: 60,
-                            child: RaisedButton(
-                              child: Text('About Amrapali Gramsahavas',
-                                  style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      fontSize: 20)),
-                              color: Colors.blue,
-                              textColor: Colors.white,
-                              onPressed: () => about_ag(context),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          ButtonTheme(
-                            minWidth: 400.0,
-                            height: 60,
-                            child: RaisedButton(
-                              child: Text('Services Offered',
-                                  style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      fontSize: 20)),
-                              color: Colors.blue,
-                              textColor: Colors.white,
-                              onPressed: () => {},
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          ButtonTheme(
-                            minWidth: 350,
-                            child: RaisedButton(
-                              child: Text('Apple iOS Developer Centre Lab'),
-                              color: Colors.blue,
-                              textColor: Colors.white,
-                              onPressed: () => {},
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          ButtonTheme(
-                            minWidth: 350,
-                            child: RaisedButton(
-                              child: Text('Amazon AWS Academy Lab'),
-                              color: Colors.blue,
-                              textColor: Colors.white,
-                              onPressed: () => {},
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          ButtonTheme(
-                            minWidth: 350,
-                            child: RaisedButton(
-                              child: Text('NVIDIA Developer Program Lab'),
-                              color: Colors.blue,
-                              textColor: Colors.white,
-                              onPressed: () => {},
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          ButtonTheme(
-                            minWidth: 350,
-                            child: RaisedButton(
-                              child: Text('IBM Lab'),
-                              color: Colors.blue,
-                              textColor: Colors.white,
-                              onPressed: () => {},
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          ButtonTheme(
-                            minWidth: 350,
-                            child: RaisedButton(
-                              child: Text(
-                                  'Palo Alto Network Cybersecurity Academy Lab'),
-                              color: Colors.blue,
-                              textColor: Colors.white,
-                              onPressed: () => {},
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          ButtonTheme(
-                            minWidth: 250.0,
-                            height: 70.0,
-                            child: RaisedButton(
-                              child: Text('Contact Us',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                  )),
-                              color: Colors.black,
-                              textColor: Colors.white,
-                              onPressed: () => contactUs(context),
-                            ),
-                          ),
-                          ButtonTheme(
-                            minWidth: 250.0,
-                            height: 70.0,
-                            child: RaisedButton(
-                              child: Text('Feedback Form',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                  )),
-                              color: Colors.black,
-                              textColor: Colors.white,
-                              onPressed: () => feedbackForm(context),
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
+      title: 'Amrapali Gramsahavas',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  PageController pageController = PageController();
+  List<Widget> pages = [HomePage(), Maps(), Contact(), Gallery(), Account()];
+
+  int selectIndex = 0;
+
+  void onPageChanged(int index) {
+    setState(() {
+      selectIndex = index;
+    });
+  }
+
+  void onItemTap(int selectedItems) {
+    pageController.jumpToPage(selectedItems);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Amrapali Gramsahavas'),
+        backgroundColor: Colors.black,
+      ),
+      body: PageView(
+        controller: pageController,
+        children: pages,
+        onPageChanged: onPageChanged,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+          onTap: onItemTap,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                color: selectIndex == 0 ? Colors.white : Colors.grey,
               ),
-            ),
-          ),
-          bottomNavigationBar:
-              BottomNavigationBar(items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-              backgroundColor: Colors.black,
+              label: "Home",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.location_pin),
-              label: 'Location',
-              backgroundColor: Colors.black,
+              icon: Icon(
+                Icons.contact_page,
+                color: selectIndex == 1 ? Colors.white : Colors.grey,
+              ),
+              label: "Contact Us",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.call),
-              label: 'Contact Us',
-              backgroundColor: Colors.black,
+              icon: Icon(
+                Icons.photo,
+                color: selectIndex == 2 ? Colors.white : Colors.grey,
+              ),
+              label: "Gallery",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.photo),
-              label: 'Photo Gallery',
-              backgroundColor: Colors.black,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              label: 'My Account',
-              backgroundColor: Colors.black,
+              icon: Icon(
+                Icons.account_box,
+                color: selectIndex == 3 ? Colors.white : Colors.grey,
+              ),
+              label: "Account",
             ),
           ]),
-        ));
-  }
-
-  void visionmission(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Vision and Mission'),
-          content: Text(
-              'VISION: \nTo provide excellent Information Technology education and aspire to nurture students as leaders who are in tune with global IT Trends \n\nMISSION: \nM1 - To Enrich students by rigorously implementing quality education \nM2 - To make students industry ready \nM3 - To imbibe professional ethics and social values in the students and make them responsible citizens'),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('Close'),
-              onPressed: () => Navigator.of(context).pop(),
-            )
-          ],
-        );
-      },
-    );
-  }
-
-  void contactUs(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Contact Us'),
-          content: Text(
-              'Working Hours: \nMonday to Saturday - 09:00am to 05:30pm. \n\nMail us at hodit@famt.ac.in'),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('Close'),
-              onPressed: () => Navigator.of(context).pop(),
-            )
-          ],
-        );
-      },
-    );
-  }
-
-  void feedbackForm(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return MaterialApp(
-            title: 'Amrapali Gramsahavas/Home',
-            home: Scaffold(
-              appBar: AppBar(
-                title: Text('Amrapali Gramsahavas'),
-                backgroundColor: Colors.black,
-              ),
-              body: Container(
-                padding: EdgeInsets.all(32),
-                child: Form(
-                  key: _key,
-                  child: Column(
-                    children: [
-                      Text(
-                        'IT Department Student Feedback Form',
-                        style: (TextStyle(
-                            fontSize: 25,
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold)),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      TextFormField(
-                        decoration: const InputDecoration(
-                          icon: const Icon(Icons.person),
-                        ),
-                        initialValue: "Student Name",
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "This field cannot be empty";
-                          } else if (value.length <= 5) {
-                            return "This field should be greater than length 5";
-                          } else {
-                            return null;
-                          }
-                        },
-                      ),
-                      TextFormField(
-                        decoration: const InputDecoration(
-                          icon: const Icon(Icons.email),
-                        ),
-                        initialValue: "Email Address",
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "This field cannot be empty";
-                          } else if (value.length <= 5) {
-                            return "This field should be greater than length 5";
-                          } else {
-                            return null;
-                          }
-                        },
-                      ),
-                      TextFormField(
-                        decoration: const InputDecoration(
-                          icon: const Icon(Icons.numbers),
-                        ),
-                        initialValue: "Registration Number",
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "This field cannot be empty";
-                          } else if (value.length <= 5) {
-                            return "This field should be greater than length 5";
-                          } else {
-                            return null;
-                          }
-                        },
-                      ),
-                      TextFormField(
-                        decoration: const InputDecoration(
-                          icon: const Icon(Icons.phone),
-                        ),
-                        initialValue: "Contact Number",
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "This field cannot be empty";
-                          } else if (value.length <= 9) {
-                            return "This field should be of length 9";
-                          } else {
-                            return null;
-                          }
-                        },
-                      ),
-                      TextFormField(
-                        decoration: const InputDecoration(
-                          icon: const Icon(Icons.home_work),
-                        ),
-                        initialValue: 'Class and Branch',
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "This field cannot be empty";
-                          } else if (value.length <= 2) {
-                            return "This field should be greater than length 2";
-                          } else {
-                            return null;
-                          }
-                        },
-                      ),
-                      TextFormField(
-                        decoration: const InputDecoration(
-                          icon: const Icon(Icons.feedback),
-                        ),
-                        initialValue: 'Give your feedback',
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "This field cannot be empty";
-                          } else if (value.length <= 15) {
-                            return "This field should be greater than length 15";
-                          } else {
-                            return null;
-                          }
-                        },
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      FlatButton(
-                        onPressed: () {
-                          if (_key.currentState!.validate()) {
-                            Scaffold.of(context).showSnackBar(
-                                SnackBar(content: Text('Data is submitted')));
-                            //print("Your data is submitted");
-                          }
-                        },
-                        child: Text("Submit"),
-                        color: Colors.blue,
-                        textColor: Colors.white,
-                      ),
-                      FlatButton(
-                        child: Text('Close'),
-                        onPressed: () => Navigator.of(context).pop(),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ));
-      },
-    );
-  }
-
-// we can add video in this section
-  void about_ag(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return MaterialApp(
-            title: 'Amrapali Gramsahavas',
-            home: Scaffold(
-              appBar: AppBar(
-                title: Text('Amrapali Gramsahavas'),
-                backgroundColor: Colors.black,
-              ),
-              body: Center(
-                child: Container(
-                  padding: EdgeInsets.all(32),
-                  child: Form(
-                    key: _key,
-                    child: Column(
-                      children: [
-                        Text(
-                          'About',
-                          style: (TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.bold)),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Image.asset('compound_1.jpg'),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Text(
-                            'Amrapali Gramsahavas is a homestay for tourists, situated in Dapoli taluka in Ratnagiri district.')
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              bottomNavigationBar:
-                  BottomNavigationBar(items: <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
-                  label: 'Home',
-                  backgroundColor: Colors.black,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.location_pin),
-                  label: 'Location',
-                  backgroundColor: Colors.black,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.call),
-                  label: 'Contact Us',
-                  backgroundColor: Colors.black,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.photo),
-                  label: 'Photo Gallery',
-                  backgroundColor: Colors.black,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.account_circle),
-                  label: 'My Account',
-                  backgroundColor: Colors.black,
-                ),
-              ]),
-            ));
-      },
     );
   }
 }
