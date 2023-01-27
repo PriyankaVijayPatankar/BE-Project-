@@ -11,6 +11,14 @@ class _AccountState extends State<About> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          title: Text('About'),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_ios),
+          )),
       body: Center(
         child: Container(
           padding: EdgeInsets.all(32),
