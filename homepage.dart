@@ -21,7 +21,7 @@ class _HomeState extends State<HomePage> {
                           child: Center(
                             child: Column(children: [
                               // make the image size large, occupying the whole width of screen, and atleast 40% of vertical screen
-                              Image.asset('compound_1.jpg'),
+                              Image.asset('assets/images/compound_1.jpg'),
                               //Image.network(
                               //  'https://i1.wp.com/famt.ac.in/wp-content/uploads/2015/08/DSC_0050.jpg',
                               //  height: 300,
@@ -60,9 +60,8 @@ class _HomeState extends State<HomePage> {
                                     height: 60,
                                     child: RaisedButton(
                                       child: Text('About Amrapali Gramsahavas',
-                                          style: TextStyle(
-                                              fontSize: 20)),
-                                      color: Colors.blue,
+                                          style: TextStyle(fontSize: 20)),
+                                      color: Colors.black,
                                       textColor: Colors.white,
                                       onPressed: () {
                                         Navigator.of(context).push(
@@ -78,11 +77,11 @@ class _HomeState extends State<HomePage> {
                                     minWidth: 400.0,
                                     height: 60,
                                     child: RaisedButton(
-                                      child: Text('Services Offered',
+                                      child: Text('Check Services',
                                           style: TextStyle(
                                               //fontWeight: FontWeight.bold,
                                               fontSize: 20)),
-                                      color: Colors.blue,
+                                      color: Colors.black,
                                       textColor: Colors.white,
                                       onPressed: () {
                                         Navigator.of(context).push(
