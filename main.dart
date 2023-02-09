@@ -52,8 +52,16 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Amrapali Gramsahavas'),
+        leading: IconButton(
+          icon: Image.asset('assets/images/Logo.png'),
+          onPressed: () {},
+        ),
+        title: const Text(
+          'Amrapali Gramsahavas',
+          style: TextStyle(fontSize: 35),
+        ),
         backgroundColor: Colors.black,
+        centerTitle: true,
       ),
       body: PageView(
         controller: pageController,
@@ -61,12 +69,15 @@ class _MyHomePageState extends State<MyHomePage> {
         onPageChanged: onPageChanged,
       ),
       bottomNavigationBar: BottomNavigationBar(
+          //backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+          //backgroundColor: Colors.black,
           backgroundColor: Colors.black,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
           onTap: onItemTap,
           items: [
             BottomNavigationBarItem(
-              backgroundColor: Color.fromARGB(255, 0, 0, 0),
               icon: Icon(
                 Icons.home,
                 color: selectIndex == 0 ? Colors.white : Colors.grey,
@@ -74,7 +85,6 @@ class _MyHomePageState extends State<MyHomePage> {
               label: "Home",
             ),
             BottomNavigationBarItem(
-              backgroundColor: Colors.black,
               icon: Icon(
                 Icons.location_pin,
                 color: selectIndex == 1 ? Colors.white : Colors.grey,
@@ -82,15 +92,13 @@ class _MyHomePageState extends State<MyHomePage> {
               label: "Location",
             ),
             BottomNavigationBarItem(
-              backgroundColor: Colors.black,
               icon: Icon(
-                Icons.contact_page,
+                Icons.phone_in_talk,
                 color: selectIndex == 2 ? Colors.white : Colors.grey,
               ),
               label: "Contact Us",
             ),
             BottomNavigationBarItem(
-              backgroundColor: Colors.black,
               icon: Icon(
                 Icons.photo,
                 color: selectIndex == 3 ? Colors.white : Colors.grey,
@@ -98,9 +106,8 @@ class _MyHomePageState extends State<MyHomePage> {
               label: "Gallery",
             ),
             BottomNavigationBarItem(
-              backgroundColor: Colors.black,
               icon: Icon(
-                Icons.account_box,
+                Icons.account_circle_rounded,
                 color: selectIndex == 4 ? Colors.white : Colors.grey,
               ),
               label: "Account",
