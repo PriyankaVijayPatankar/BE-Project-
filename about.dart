@@ -1,37 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:mymobileapp/main.dart';
+//import 'homepage.dart';
 
 class About extends StatefulWidget {
   const About({Key? key}) : super(key: key);
 
   @override
-  State<About> createState() => _AccountState();
+  State<About> createState() => _AboutState();
 }
 
-class _AccountState extends State<About> {
+class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text('About'),
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(Icons.arrow_back_ios),
-          )),
+        title: const Text("About", style: TextStyle(color: Colors.black)),
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        elevation: 0,
+        leading: BackButton(
+          color: Colors.black,
+          onPressed: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => MyApp()));
+          },
+        ),
+      ),
       body: Center(
         child: Container(
           padding: EdgeInsets.all(32),
           child: Column(
             children: [
               Text(
-                'About',
+                'lorem epsum',
                 style: (TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
               ),
               SizedBox(
                 height: 20,
               ),
-              Image.asset('compound_1.jpg'),
+              Image.asset('assets/images/compound_1.jpg'),
               SizedBox(
                 height: 30,
               ),
