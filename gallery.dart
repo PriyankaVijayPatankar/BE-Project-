@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/main.dart';
+import 'package:mymobileapp/main.dart';
 import 'homepage.dart';
 
 class Gallery extends StatefulWidget {
@@ -30,10 +30,13 @@ class _GalleryState extends State<Gallery> {
       appBar: AppBar(
         title: const Text("Gallery", style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.white,
+        centerTitle: true,
+        elevation: 0,
         leading: BackButton(
           color: Colors.black,
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => MyApp()));
           },
         ),
       ),
