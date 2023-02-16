@@ -22,7 +22,7 @@ class _ContactState extends State<Contact> {
           color: Colors.black,
           onPressed: () {
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => MyApp()));
+                .push(MaterialPageRoute(builder: (context) => HomePage()));
           },
         ),
         //title: Text("Contact us"),
