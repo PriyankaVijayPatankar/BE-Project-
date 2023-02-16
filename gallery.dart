@@ -36,7 +36,7 @@ class _GalleryState extends State<Gallery> {
           color: Colors.black,
           onPressed: () {
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => HomePage()));
+                .push(MaterialPageRoute(builder: (context) => MyApp()));
           },
         ),
       ),
