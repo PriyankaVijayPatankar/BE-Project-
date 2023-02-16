@@ -22,7 +22,7 @@ class _AboutState extends State<About> {
           color: Colors.black,
           onPressed: () {
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => MyApp()));
+                .push(MaterialPageRoute(builder: (context) => HomePage()));
           },
         ),
       ),
