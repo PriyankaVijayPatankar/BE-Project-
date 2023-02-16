@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/booking.dart';
 
 import 'about.dart';
 import 'services.dart';
@@ -66,8 +67,56 @@ class _HomeState extends State<HomePage> {
                             height: 60,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.black,
-                                foregroundColor: Colors.white,
+                                // backgroundColor: Colors.black,
+                                // foregroundColor: Colors.white,
+                                padding: EdgeInsets.all(20.0),
+                              ),
+                              child: Text('Book now     >',
+                                  style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      fontSize: 20)),
+                              //color: Colors.black,
+                              //textColor: Colors.white,
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => Booking()));
+                              },
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          ButtonTheme(
+                            minWidth: 400.0,
+                            height: 60,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                // backgroundColor: Colors.black,
+                                // foregroundColor: Colors.white,
+                                padding: EdgeInsets.all(20.0),
+                              ),
+                              child: Text('Check Services     >',
+                                  style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      fontSize: 20)),
+                              //color: Colors.black,
+                              //textColor: Colors.white,
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => Services()));
+                              },
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          ButtonTheme(
+                            minWidth: 400.0,
+                            height: 60,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                // backgroundColor: Colors.black,
+                                // foregroundColor: Colors.white,
                                 //elevation: 100,
                                 padding: EdgeInsets.all(20.0), // Elevation
                                 // shadowColor:
@@ -80,30 +129,6 @@ class _HomeState extends State<HomePage> {
                               onPressed: () {
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) => About()));
-                              },
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          ButtonTheme(
-                            minWidth: 400.0,
-                            height: 60,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.black,
-                                foregroundColor: Colors.white,
-                                padding: EdgeInsets.all(20.0),
-                              ),
-                              child: Text('Check Services     >',
-                                  style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      fontSize: 20)),
-                              //color: Colors.black,
-                              //textColor: Colors.white,
-                              onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => Services()));
                               },
                             ),
                           ),
