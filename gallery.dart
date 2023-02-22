@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mymobileapp/main.dart';
-import 'homepage.dart';
+import 'package:myapp/main.dart';
 
 class Gallery extends StatefulWidget {
   const Gallery({Key? key}) : super(key: key);
@@ -13,16 +12,16 @@ class _GalleryState extends State<Gallery> {
   @override
   Widget build(BuildContext context) {
     List<String> images = [
-      "assets/images/main 11.jpeg",
-      "assets/images/main 22.jpeg",
-      "assets/images/main 13.jpeg",
-      "assets/images/main 26.jpeg",
-      "assets/images/main 27.jpeg",
-      "assets/images/main.jpeg",
-      "assets/images/neelam.jpeg",
-      "assets/images/ratna.jpeg",
-      "assets/images/sindhu.jpeg",
-      "assets/images/suvarna.jpeg",
+      "images/main 11.jpeg",
+      "images/main 22.jpeg",
+      "images/main 13.jpeg",
+      "images/main 26.jpeg",
+      "images/main 27.jpeg",
+      "images/main.jpeg",
+      "images/neelam.jpeg",
+      "images/ratna.jpeg",
+      "images/sindhu.jpeg",
+      "images/suvarna.jpeg",
     ];
 
     return MaterialApp(
