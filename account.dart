@@ -1,8 +1,5 @@
-// this is the minimum code required
-
 import 'package:flutter/material.dart';
-import 'package:mymobileapp/main.dart';
-import 'homepage.dart';
+import 'package:myapp/main.dart';
 
 class Account extends StatefulWidget {
   const Account({Key? key}) : super(key: key);
@@ -24,7 +21,7 @@ class _AccountState extends State<Account> {
           color: Colors.black,
           onPressed: () {
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => HomePage()));
+                .push(MaterialPageRoute(builder: (context) => MyApp()));
           },
         ),
       ),
