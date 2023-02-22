@@ -53,12 +53,12 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Image.asset('assets/images/Logo.png'),
+          icon: Image.asset('images/Logo.png'),
           onPressed: () {},
         ),
         title: const Text(
           'Amrapali Gramsahavas',
-          style: TextStyle(fontSize: 35),
+          style: TextStyle(fontSize: 25),
         ),
         backgroundColor: Colors.black,
         centerTitle: true,
