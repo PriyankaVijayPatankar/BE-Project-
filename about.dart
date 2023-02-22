@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mymobileapp/main.dart';
-//import 'homepage.dart';
+import 'package:myapp/homepage.dart';
 
 class About extends StatefulWidget {
   const About({Key? key}) : super(key: key);
@@ -38,7 +37,7 @@ class _AboutState extends State<About> {
               SizedBox(
                 height: 20,
               ),
-              Image.asset('assets/images/compound_1.jpg'),
+              Image.asset('images/compound_1.jpg'),
               SizedBox(
                 height: 30,
               ),
