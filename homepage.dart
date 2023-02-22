@@ -23,16 +23,13 @@ class _HomeState extends State<HomePage> {
                     child: Column(children: [
                       // make the image size large, occupying the whole width of screen, and atleast 40% of vertical screen
                       Image.asset(
-                        'assets/images/compound_1.jpg',
+                        'images/compound_1.jpg',
                         //scale: 0.8,
                         fit: BoxFit.contain,
                         width: double.infinity,
                         //height: 308,
                       ),
-                      //Image.network(
-                      //  'https://i1.wp.com/famt.ac.in/wp-content/uploads/2015/08/DSC_0050.jpg',
-                      //  height: 300,
-                      //),
+
                       Padding(
                           padding: EdgeInsets.all(20.0),
                           child: Container(
@@ -142,3 +139,4 @@ class _HomeState extends State<HomePage> {
     );
   }
 }
+
